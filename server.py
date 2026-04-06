@@ -34,12 +34,12 @@ def paso_1_saludo(nombre: str) -> str:
     )
     gather.say(
         f"Hola, muy buenos días. ¿Habla usted con {nombre}?",
-        voice="Polly.Marta-Neural",
+        voice="Polly.Marta",
         language="es-CO"
     )
     twiml.append(gather)
     # Si no responde, repetir
-    twiml.say("Le pido que por favor confirme si está presente.", voice="Polly.Marta-Neural", language="es-CO")
+    twiml.say("Le pido que por favor confirme si está presente.", voice="Polly.Marta", language="es-CO")
     twiml.redirect("/respuesta?paso=1")
     return str(twiml)
 
@@ -58,11 +58,11 @@ def paso_2_identidad(cedula: str, telefono: str) -> str:
     gather.say(
         f"Por favor confirme: ¿Es usted el titular de la cédula número {cedula}? "
         f"¿Este número {telefono} es su número principal de contacto?",
-        voice="Polly.Marta-Neural",
+        voice="Polly.Marta",
         language="es-CO"
     )
     twiml.append(gather)
-    twiml.say("No se detectaron respuestas. Por favor responda sí o no.", voice="Polly.Marta-Neural", language="es-CO")
+    twiml.say("No se detectaron respuestas. Por favor responda sí o no.", voice="Polly.Marta", language="es-CO")
     twiml.redirect("/respuesta?paso=2")
     return str(twiml)
 
@@ -73,7 +73,7 @@ def paso_3_informacion() -> str:
     twiml.say(
         "Nos encontramos validando su solicitud de financiamiento "
         "para la adquisición de un equipo tecnológico.",
-        voice="Polly.Marta-Neural",
+        voice="Polly.Marta",
         language="es-CO"
     )
     twiml.pause(length=1)
@@ -96,11 +96,11 @@ def paso_4_condiciones() -> str:
         "Es importante que conozca las condiciones: "
         "En caso de incumplimiento o atraso en el pago, el equipo será bloqueado automáticamente. "
         "¿Está usted de acuerdo con estas condiciones?",
-        voice="Polly.Marta-Neural",
+        voice="Polly.Marta",
         language="es-CO"
     )
     twiml.append(gather)
-    twiml.say("Por favor confirme si acepta las condiciones.", voice="Polly.Marta-Neural", language="es-CO")
+    twiml.say("Por favor confirme si acepta las condiciones.", voice="Polly.Marta", language="es-CO")
     twiml.redirect("/respuesta?paso=4")
     return str(twiml)
 
@@ -118,11 +118,11 @@ def paso_5_compromiso() -> str:
     )
     gather.say(
         "¿Se compromete a cumplir con los pagos en las fechas establecidas?",
-        voice="Polly.Marta-Neural",
+        voice="Polly.Marta",
         language="es-CO"
     )
     twiml.append(gather)
-    twiml.say("Por favor responda sí o no.", voice="Polly.Marta-Neural", language="es-CO")
+    twiml.say("Por favor responda sí o no.", voice="Polly.Marta", language="es-CO")
     twiml.redirect("/respuesta?paso=5")
     return str(twiml)
 
@@ -134,7 +134,7 @@ def paso_final() -> str:
         "Gracias por su atención. Sus respuestas han sido registradas exitosamente. "
         "Un asesor se comunicará con usted prontamente. "
         "Que tenga un excelente día. Hasta luego.",
-        voice="Polly.Marta-Neural",
+        voice="Polly.Marta",
         language="es-CO"
     )
     twiml.hangup()
@@ -147,7 +147,7 @@ def paso_no_respondio() -> str:
     twiml.say(
         "No se detectaron respuestas. La llamada será finalizada. "
         "Gracias por su tiempo.",
-        voice="Polly.Marta-Neural",
+        voice="Polly.Marta",
         language="es-CO"
     )
     twiml.hangup()

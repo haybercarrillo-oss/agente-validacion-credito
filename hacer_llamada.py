@@ -19,8 +19,8 @@ CLIENTE = {
     "telefono_cliente": "+573004520500",
 }
 
-# URL del servidor en Render con los datos URL-encoded
-BASE_URL = "https://agente-validacion.onrender.com"
+# URL del servidor local con tunnel serveo
+BASE_URL = "https://a386b5ffb7840116-181-79-87-78.serveousercontent.com"
 
 # URL-encode los parámetros
 nombre_encoded = quote(CLIENTE['nombre_cliente'])
