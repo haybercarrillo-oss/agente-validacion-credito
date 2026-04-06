@@ -8,6 +8,7 @@ sys.path.insert(0, ".")
 from telefonia.twilio_client import ClienteTwilio
 import os
 from dotenv import load_dotenv
+from urllib.parse import quote
 
 load_dotenv()
 
@@ -18,9 +19,15 @@ CLIENTE = {
     "telefono_cliente": "+573502977483",
 }
 
-# URL del servidor en Render con los datos del cliente
+# URL del servidor en Render con los datos URL-encoded
 BASE_URL = "https://agente-validacion.onrender.com"
-TWIML_URL = f"{BASE_URL}/twiml-cliente?nombre={CLIENTE['nombre_cliente']}&cedula={CLIENTE['cedula']}&telefono={CLIENTE['telefono_cliente']}"
+
+# URL-encode los parámetros
+nombre_encoded = quote(CLIENTE['nombre_cliente'])
+cedula_encoded = quote(CLIENTE['cedula'])
+telefono_encoded = quote(CLIENTE['telefono_cliente'])
+
+TWIML_URL = f"{BASE_URL}/twiml-cliente?nombre={nombre_encoded}&cedula={cedula_encoded}&telefono={telefono_encoded}"
 
 def hacer_llamada():
     print("=" * 60)
@@ -45,6 +52,7 @@ def hacer_llamada():
 
         if resultado.get("success"):
             print("\n✅ LLAMADA INICIADA CORRECTAMENTE")
+            print(f"⏳ Contesten el teléfono...")
             return resultado
         else:
             print(f"\n❌ ERROR: {resultado.get('error')}")
