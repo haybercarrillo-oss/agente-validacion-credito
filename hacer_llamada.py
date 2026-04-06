@@ -14,9 +14,9 @@ load_dotenv()
 
 # Datos del cliente
 CLIENTE = {
-    "nombre_cliente": "Vega Hernández vldamir",
-    "cedula": "1092084218",
-    "telefono_cliente": "+573502977483",
+    "nombre_cliente": "María García López",
+    "cedula": "9876543210",
+    "telefono_cliente": "+573004520500",
 }
 
 # URL del servidor en Render con los datos URL-encoded
